@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Award } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Award, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -16,6 +16,7 @@ export default function PortfolioPage() {
     skills: useRef<HTMLDivElement>(null),
     projects: useRef<HTMLDivElement>(null),
     education: useRef<HTMLDivElement>(null),
+    experience: useRef<HTMLDivElement>(null),
     contact: useRef<HTMLDivElement>(null),
   }
 
@@ -59,7 +60,9 @@ export default function PortfolioPage() {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
             Gulshan Kumar
           </h1>
-          <h2 className="text-2xl md:text-3xl font-medium mb-6">Web Developer</h2>
+          <h2 className="text-2xl md:text-3xl font-medium mb-6">
+            React.js Frontend Developer | Next.js Enthusiast | MERN Stack Learner
+          </h2>
           <p className="text-xl text-muted-foreground mb-8">
             Passionate about creating responsive and user-friendly web applications
           </p>
@@ -93,9 +96,9 @@ export default function PortfolioPage() {
                 front-end development with expertise in React.js, Next.js, and responsive design.
               </p>
               <p>
-                My goal is to create intuitive and engaging web experiences that solve real-world problems. I am
-                constantly learning new technologies and improving my skills to stay updated with the latest industry
-                trends.
+                As a Next.js enthusiast and React.js developer, I'm currently interning at ByteUprise while expanding my
+                skills in the MERN stack. My goal is to create intuitive and engaging web experiences that solve
+                real-world problems.
               </p>
               <div className="flex flex-wrap gap-2 mt-6">
                 <div className="flex items-center text-muted-foreground">
@@ -108,20 +111,26 @@ export default function PortfolioPage() {
                 </div>
                 <div className="flex items-center text-muted-foreground">
                   <MapPin className="h-4 w-4 mr-2" />
-                  <span>Lucknow</span>
+                  <span>Lucknow, India</span>
                 </div>
               </div>
               <div className="flex gap-4 mt-4">
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="#" target="_blank" rel="noopener noreferrer">
                     <Github className="h-4 w-4 mr-2" />
                     GitHub
                   </Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="#" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-4 w-4 mr-2" />
                     LinkedIn
+                  </Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Portfolio
                   </Link>
                 </Button>
               </div>
@@ -130,8 +139,41 @@ export default function PortfolioPage() {
         </motion.div>
       </section>
 
+      {/* Experience Section */}
+      <section ref={sectionRefs.experience} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={container}
+          className="max-w-4xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+
+          <motion.div variants={item}>
+            <Card>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle>Frontend Developer Intern</CardTitle>
+                    <CardDescription>ByteUprise</CardDescription>
+                  </div>
+                  <Badge variant="secondary">Current</Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Working as a React.js and Next.js developer, contributing to frontend development projects while
+                  learning industry best practices.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* Skills Section */}
-      <section ref={sectionRefs.skills} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+      <section ref={sectionRefs.skills} className="container mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -193,7 +235,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects Section */}
-      <section ref={sectionRefs.projects} className="container mx-auto px-4 py-16 md:py-24">
+      <section ref={sectionRefs.projects} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -233,7 +275,7 @@ export default function PortfolioPage() {
 
             <motion.div variants={item}>
               <ProjectCard
-                title="Amazon Front Page"
+                title="Amazon Front Page Clone"
                 description="A clone of the Amazon front page using HTML and CSS, replicating the layout and design of the popular e-commerce platform."
                 technologies={["HTML", "CSS"]}
                 link="#"
@@ -251,9 +293,9 @@ export default function PortfolioPage() {
 
             <motion.div variants={item}>
               <ProjectCard
-                title="ByteUprise"
-                description="A fully responsive web application using HTML, JavaScript, React.js, and Bootstrap. The project replicates front-end design, including navigation, product listings, and interactive elements."
-                technologies={["HTML", "JavaScript", "React.js", "Bootstrap"]}
+                title="Video Call Chat App"
+                description="A video call chat application developed using HTML, JavaScript, React.js, Next.js and Tailwind CSS. The app features responsive design and interactive elements."
+                technologies={["HTML", "JavaScript", "React.js", "Next.js", "Tailwind CSS"]}
                 link="#"
               />
             </motion.div>
@@ -262,7 +304,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Education Section */}
-      <section ref={sectionRefs.education} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+      <section ref={sectionRefs.education} className="container mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -323,7 +365,8 @@ export default function PortfolioPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p>Location: Lucknow</p>
+                  <p>Location: Ayodhya</p>
+                  <p>CGPA: 6.7</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -331,39 +374,8 @@ export default function PortfolioPage() {
         </motion.div>
       </section>
 
-      {/* Certifications Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={container}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Certifications</h2>
-
-          <motion.div variants={item}>
-            <Card className="overflow-hidden">
-              <CardHeader className="bg-primary/10">
-                <CardTitle className="flex items-center">
-                  <Award className="h-5 w-5 mr-2" />
-                  Programming Fundamentals using Python - Part 1
-                </CardTitle>
-                <CardDescription>Infosys</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <p>
-                  Completed comprehensive training in Python programming fundamentals, covering core concepts and
-                  practical applications.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </motion.div>
-      </section>
-
       {/* Contact Section */}
-      <section ref={sectionRefs.contact} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+      <section ref={sectionRefs.contact} className="container mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -409,15 +421,21 @@ export default function PortfolioPage() {
 
           <div className="flex justify-center gap-4">
             <Button asChild>
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link href="#" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-2" />
                 GitHub
               </Link>
             </Button>
             <Button asChild>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <Link href="#" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4 mr-2" />
                 LinkedIn
+              </Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="#" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Portfolio
               </Link>
             </Button>
           </div>

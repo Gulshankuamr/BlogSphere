@@ -54,10 +54,18 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
         <Link href="/" className="text-2xl font-bold flex items-center">
+  {/* Replace this with your image logo */}
+  <img 
+    src="/G.png" 
+    alt="Gulshan Kumar Logo"
+    className="h-12 w-12 mr-2 rounded-full" // Adjust size as needed
+  />
+  {/* Remove these text elements
   <span className="bg-primary text-primary-foreground rounded-full px-2 py-2 mr-2">GK</span>
   <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
     GulshanX.Dev
   </span>
+  */}
 </Link>
 
           {/* Desktop Navigation */}

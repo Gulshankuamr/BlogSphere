@@ -8,8 +8,8 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Text Section */}
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-            Welcome to BlogSpace
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-white-600">
+            Welcome to  GX.Dev BlogSpace
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl ">
             Share your thoughts, stories, and ideas with the world. Create and publish your own blogs in minutes.

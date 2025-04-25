@@ -8,14 +8,14 @@ export default function Footer() {
           {/* Brand and description */}
           <div className="space-y-4">
             <Link href="/" className="text-xl font-bold flex items-center">
-              <span className="bg-primary text-primary-foreground rounded-md px-2 py-1 mr-2">GK</span>
-              BlogSpace
+              <span className="bg-primary text-primary-foreground rounded-md px-2 py-1 mr-2">Gx</span>
+              GulshanX.dev
             </Link>
             <p className="text-sm text-muted-foreground">
               A platform for sharing knowledge, ideas, and stories. Join our community of writers and readers.
             </p>
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} GulshanX.Dev. All rights reserved.
+             
             </p>
           </div>
 
@@ -173,9 +173,9 @@ export default function Footer() {
           </div>
 
           <div className="text-sm text-muted-foreground text-center md:text-right">
-            <p>Built with Next.js and Tailwind CSS</p>
-            <p className="mt-1">Designed with by Gulshan Kumar</p>
-          </div>
+  <p>Building bridges between vision and reality</p>
+  <p className="mt-1">© {new Date().getFullYear()}   GulshanX.Dev. All rights reserved.</p>
+</div>
         </div>
       </div>
     </footer>
