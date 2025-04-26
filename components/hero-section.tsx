@@ -9,7 +9,7 @@ export default function HeroSection() {
         {/* Text Section */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-white-600">
-            Welcome to  GX.Dev BlogSpace
+            Welcome to BlogSphere
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl ">
             Share your thoughts, stories, and ideas with the world. Create and publish your own blogs in minutes.
@@ -27,7 +27,7 @@ export default function HeroSection() {
         {/* Image Section */}
         <div className="flex-1 flex justify-center">
   <video
-    src="/White Clean Story Desktop Wallpaper.mp4" // Replace with your actual video file name placed inside the public folder
+    src="/White Clean Story Desktop Wallpaper (1).mp4" // Replace with your actual video file name placed inside the public folder
     width={500}
     height={500}
     autoPlay
