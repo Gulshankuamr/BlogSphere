@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import "@/app/globals.css"
 
+
+
 export default function RootLayout({
   children,
 }: {
@@ -25,5 +27,10 @@ export default function RootLayout({
 }
 
 export const metadata = {
-      generator: 'v0.dev'
+      generator: 'GulshanX.dev',
+      description: 'GulshanX.dev is a blogging platform where you can share your thoughts, stories, and ideas with the world. Create and publish your own blogs in minutes.',
+      keywords: ['GulshanX.dev', 'blogging platform', 'share thoughts', 'create blogs', 'publish blogs'],
+      authors: [{ name: 'GulshanX.dev', url: 'https://gulshanx.dev' }],
+      creator: 'GulshanX.dev',
+      publisher: 'GulshanX.dev',
     };

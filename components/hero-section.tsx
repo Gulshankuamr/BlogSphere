@@ -14,14 +14,14 @@ export default function HeroSection() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl ">
             Share your thoughts, stories, and ideas with the world. Create and publish your own blogs in minutes.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          {/* <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <Button size="lg" className="rounded-full px-8 py-6 text-lg shadow-lg hover:scale-105 transition-transform" asChild>
               <Link href="/create-blog">Start Writing</Link>
             </Button>
             <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg hover:bg-white/20" asChild>
               <Link href="/blogs">Explore Blogs</Link>
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Image Section */}

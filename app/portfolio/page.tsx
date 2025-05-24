@@ -1,13 +1,29 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Award, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useRef } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ExternalLink,
+  Award,
+  Briefcase,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function PortfolioPage() {
   const sectionRefs = {
@@ -18,11 +34,11 @@ export default function PortfolioPage() {
     education: useRef<HTMLDivElement>(null),
     experience: useRef<HTMLDivElement>(null),
     contact: useRef<HTMLDivElement>(null),
-  }
+  };
 
   const scrollToSection = (section: keyof typeof sectionRefs) => {
-    sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" })
-  }
+    sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const container = {
     hidden: { opacity: 0 },
@@ -32,17 +48,17 @@ export default function PortfolioPage() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  };
 
   const fadeIn = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { duration: 0.8 } },
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
@@ -61,17 +77,25 @@ export default function PortfolioPage() {
             Gulshan Kumar
           </h1>
           <h2 className="text-2xl md:text-3xl font-medium mb-6">
-            React.js Frontend Developer | Next.js Enthusiast | MERN Stack Learner
+            React.js Developer Intern at ByteUprise | Next.js | Frontend
+            Developer | MERN Stack
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Passionate about creating responsive and user-friendly web applications
+            Passionate about creating responsive and user-friendly web
+            applications
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button onClick={() => scrollToSection("about")}>About Me</Button>
-            <Button variant="outline" onClick={() => scrollToSection("projects")}>
+            <Button
+              variant="outline"
+              onClick={() => scrollToSection("projects")}
+            >
               View Projects
             </Button>
-            <Button variant="secondary" onClick={() => scrollToSection("contact")}>
+            <Button
+              variant="secondary"
+              onClick={() => scrollToSection("contact")}
+            >
               Contact Me
             </Button>
           </div>
@@ -79,7 +103,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* About Section */}
-      <section ref={sectionRefs.about} className="container mx-auto px-4 py-16 md:py-24">
+      <section
+        ref={sectionRefs.about}
+        className="container mx-auto px-4 py-16 md:py-24"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -91,14 +118,17 @@ export default function PortfolioPage() {
           <Card>
             <CardContent className="pt-6">
               <p className="mb-4">
-                I am a passionate web developer currently pursuing my Master of Computer Applications (MCA) at the
-                Institute of Engineering & Technology, Dr. Ram Manohar Lohiya Awadh University. I specialize in
-                front-end development with expertise in React.js, Next.js, and responsive design.
+                I am a passionate web developer currently pursuing my Master of
+                Computer Applications (MCA) at the Institute of Engineering &
+                Technology, Dr. Ram Manohar Lohiya Awadh University, Ayodhya. I
+                specialize in front-end development with expertise in React.js,
+                Next.js, and responsive design.
               </p>
               <p>
-                As a Next.js enthusiast and React.js developer, I'm currently interning at ByteUprise while expanding my
-                skills in the MERN stack. My goal is to create intuitive and engaging web experiences that solve
-                real-world problems.
+                As a Next.js enthusiast and React.js developer, I'm currently
+                interning at ByteUprise while expanding my skills in the MERN
+                stack. My goal is to create intuitive and engaging web
+                experiences that solve real-world problems.
               </p>
               <div className="flex flex-wrap gap-2 mt-6">
                 <div className="flex items-center text-muted-foreground">
@@ -127,8 +157,12 @@ export default function PortfolioPage() {
                     LinkedIn
                   </Link>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" asChild>
+                  <Link
+                    href="https://gulshan-portfolio-gulshan73939314-gmailcoms-projects.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Portfolio
                   </Link>
@@ -140,7 +174,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* Experience Section */}
-      <section ref={sectionRefs.experience} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+      <section
+        ref={sectionRefs.experience}
+        className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -150,30 +187,114 @@ export default function PortfolioPage() {
         >
           <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
 
-          <motion.div variants={item}>
-            <Card>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle>Frontend Developer Intern</CardTitle>
-                    <CardDescription>ByteUprise</CardDescription>
+          <div className="space-y-6">
+            {/* ByteUprise Experience */}
+            <motion.div variants={item}>
+              <Card>
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle>React.js Frontend Developer Intern</CardTitle>
+                      <CardDescription>ByteUprise · Remote</CardDescription>
+                    </div>
+                    <Badge variant="secondary">Jan 2025 - Present</Badge>
                   </div>
-                  <Badge variant="secondary">Current</Badge>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Working as a React.js and Next.js developer, contributing to frontend development projects while
-                  learning industry best practices.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <p>
+                    Currently contributing to live projects, building responsive
+                    UIs with React.js and Next.js while expanding my MERN stack
+                    knowledge.
+                  </p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      Developing clean, responsive UI components using React.js,
+                      Next.js and Tailwind CSS
+                    </li>
+                    <li>
+                      Building modern frontend layouts with reusable components
+                    </li>
+                    <li>
+                      Integrating third-party libraries to enhance features
+                    </li>
+                    <li>
+                      Working on real-world projects with modern development
+                      workflows
+                    </li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {[
+                      "React.js",
+                      "Next.js",
+                      "JavaScript",
+                      "Tailwind CSS",
+                      "MongoDB",
+                      "Node.js",
+                    ].map((tech) => (
+                      <Badge key={tech} variant="outline" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Techpile Experience */}
+            <motion.div variants={item}>
+              <Card>
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle>Web Developer Intern</CardTitle>
+                      <CardDescription>
+                        Techpile Technology Pvt. Ltd. · On-site
+                      </CardDescription>
+                    </div>
+                    <Badge variant="secondary">Jul 2024 - Dec 2024</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <p>
+                    Gained foundational frontend development skills through
+                    hands-on projects and training.
+                  </p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      Developed UI clones including Myntra Clone and company
+                      profile websites
+                    </li>
+                    <li>Worked with HTML5, CSS3, JavaScript and Bootstrap</li>
+                    <li>
+                      Learned responsive design principles and UI/UX best
+                      practices
+                    </li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {[
+                      "HTML5",
+                      "CSS3",
+                      "JavaScript",
+                      "Bootstrap",
+                      "Responsive Design",
+                    ].map((tech) => (
+                      <Badge key={tech} variant="outline" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 
       {/* Skills Section */}
-      <section ref={sectionRefs.skills} className="container mx-auto px-4 py-16 md:py-24">
+      <section
+        ref={sectionRefs.skills}
+        className="container mx-auto px-4 py-16 md:py-24"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -192,9 +313,18 @@ export default function PortfolioPage() {
             </TabsList>
 
             <TabsContent value="programming" className="mt-6">
-              <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["C", "C++", "JavaScript (ES6+)", "HTML5", "CSS3"].map((skill) => (
-                  <Badge key={skill} variant="outline" className="py-3 justify-center text-center">
+              <motion.div
+                variants={item}
+                className="grid grid-cols-2 md:grid-cols-3 gap-4"
+                initial="hidden"
+                animate="show"
+              >
+                {["JavaScript (ES6+)", "C", "C++"].map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="py-3 justify-center text-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -202,9 +332,25 @@ export default function PortfolioPage() {
             </TabsContent>
 
             <TabsContent value="frameworks" className="mt-6">
-              <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["React.js", "Next.js", "Bootstrap", "Tailwind CSS"].map((skill) => (
-                  <Badge key={skill} variant="outline" className="py-3 justify-center text-center">
+              <motion.div
+                variants={item}
+                className="grid grid-cols-2 md:grid-cols-3 gap-4"
+                initial="hidden"
+                animate="show"
+              >
+                {[
+                  "React.js",
+                  "Next.js",
+                  "Bootstrap",
+                  "Tailwind CSS",
+                  "CSS3",
+                  "HTML5",
+                ].map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="py-3 justify-center text-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -212,9 +358,27 @@ export default function PortfolioPage() {
             </TabsContent>
 
             <TabsContent value="tools" className="mt-6">
-              <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["VS Code", "GitHub", "Netlify", "WordPress", "Figma", "Postman"].map((skill) => (
-                  <Badge key={skill} variant="outline" className="py-3 justify-center text-center">
+              <motion.div
+                variants={item}
+                className="grid grid-cols-2 md:grid-cols-3 gap-4"
+                initial="hidden"
+                animate="show"
+              >
+                {[
+                  "Visual Studio Code",
+                  "GitHub",
+                  "Netlify",
+                  "Figma",
+                  "Postman",
+                  "Canva",
+                  "Windows",
+                  "Microsoft Office",
+                ].map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="py-3 justify-center text-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -222,9 +386,18 @@ export default function PortfolioPage() {
             </TabsContent>
 
             <TabsContent value="databases" className="mt-6">
-              <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <motion.div
+                variants={item}
+                className="grid grid-cols-2 md:grid-cols-3 gap-4"
+                initial="hidden"
+                animate="show"
+              >
                 {["MongoDB", "MySQL (Basic)"].map((skill) => (
-                  <Badge key={skill} variant="outline" className="py-3 justify-center text-center">
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="py-3 justify-center text-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -235,7 +408,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects Section */}
-      <section ref={sectionRefs.projects} className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg">
+      <section
+        ref={sectionRefs.projects}
+        className="container mx-auto px-4 py-16 md:py-24 bg-muted/30 rounded-lg"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -295,7 +471,13 @@ export default function PortfolioPage() {
               <ProjectCard
                 title="Video Call Chat App"
                 description="A video call chat application developed using HTML, JavaScript, React.js, Next.js and Tailwind CSS. The app features responsive design and interactive elements."
-                technologies={["HTML", "JavaScript", "React.js", "Next.js", "Tailwind CSS"]}
+                technologies={[
+                  "HTML",
+                  "JavaScript",
+                  "React.js",
+                  "Next.js",
+                  "Tailwind CSS",
+                ]}
                 link="#"
               />
             </motion.div>
@@ -304,7 +486,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* Education Section */}
-      <section ref={sectionRefs.education} className="container mx-auto px-4 py-16 md:py-24">
+      <section
+        ref={sectionRefs.education}
+        className="container mx-auto px-4 py-16 md:py-24"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -320,16 +505,18 @@ export default function PortfolioPage() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle>Master of Computer Applications (MCA)</CardTitle>
+                      <CardTitle>
+                        Master of Computer Applications (MCA)
+                      </CardTitle>
                       <CardDescription>
-                        Institute of Engineering & Technology, Dr. Ram Manohar Lohiya Awadh University
+                        Institute of Engineering & Technology, Dr. Ram Manohar
+                        Lohiya Awadh University, Ayodhya
                       </CardDescription>
                     </div>
                     <Badge>2023-2025</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p>Location: Ayodhya</p>
                   <p>CGPA: 7.0</p>
                 </CardContent>
               </Card>
@@ -340,15 +527,19 @@ export default function PortfolioPage() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle>Intermediate (Mathematics)</CardTitle>
-                      <CardDescription>Kisan Inter College Pakri Bhojpur</CardDescription>
+                      <CardTitle>
+                        Bachelor of Computer Applications (BCA)
+                      </CardTitle>
+                      <CardDescription>
+                        Institute of Engineering & Technology, Dr. Ram Manohar
+                        Lohiya Awadh University, Ayodhya
+                      </CardDescription>
                     </div>
-                    <Badge>2017-2018</Badge>
+                    <Badge>2020-2023</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p>Location: Ambedkar Nagar</p>
-                  <p>CGPA: 6.5</p>
+                  <p>CGPA: 7.3</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -358,15 +549,18 @@ export default function PortfolioPage() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle>Computer Science</CardTitle>
-                      <CardDescription>Dr. Ram Manohar Lohia Avadh University</CardDescription>
+                      <CardTitle>
+                        Intermediate (Science - Mathematics)
+                      </CardTitle>
+                      <CardDescription>
+                        Kisan Inter College Pakri Bhojpur, Ambedkar Nagar
+                      </CardDescription>
                     </div>
-                    <Badge>Current</Badge>
+                    <Badge>2017-2018</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p>Location: Ayodhya</p>
-                  <p>CGPA: 6.7</p>
+                  <p>CGPA: 6.8</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -375,7 +569,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* Contact Section */}
-      <section ref={sectionRefs.contact} className="container mx-auto px-4 py-16 md:py-24">
+      <section
+        ref={sectionRefs.contact}
+        className="container mx-auto px-4 py-16 md:py-24"
+      >
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -392,7 +589,9 @@ export default function PortfolioPage() {
             <Card className="flex flex-col items-center p-6 hover:shadow-md transition-shadow">
               <Mail className="h-10 w-10 text-primary mb-4" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
-              <p className="text-sm text-muted-foreground mb-4">gulshan73939314@email.com</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                gulshan73939314@email.com
+              </p>
               <Button variant="outline" size="sm" asChild>
                 <Link href="mailto:gulshan73939314@email.com">Send Email</Link>
               </Button>
@@ -401,7 +600,9 @@ export default function PortfolioPage() {
             <Card className="flex flex-col items-center p-6 hover:shadow-md transition-shadow">
               <Phone className="h-10 w-10 text-primary mb-4" />
               <h3 className="text-lg font-medium mb-2">Phone</h3>
-              <p className="text-sm text-muted-foreground mb-4">+917393931450</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                +917393931450
+              </p>
               <Button variant="outline" size="sm" asChild>
                 <Link href="tel:+917393931450">Call Me</Link>
               </Button>
@@ -410,9 +611,15 @@ export default function PortfolioPage() {
             <Card className="flex flex-col items-center p-6 hover:shadow-md transition-shadow">
               <MapPin className="h-10 w-10 text-primary mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
-              <p className="text-sm text-muted-foreground mb-4">Lucknow, India</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Lucknow, India
+              </p>
               <Button variant="outline" size="sm" asChild>
-                <Link href="https://maps.google.com/?q=Lucknow,India" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://maps.google.com/?q=Lucknow,India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View on Map
                 </Link>
               </Button>
@@ -433,7 +640,11 @@ export default function PortfolioPage() {
               </Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://gulshan-portfolio-gulshan73939314-gmailcoms-projects.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Portfolio
               </Link>
@@ -442,7 +653,7 @@ export default function PortfolioPage() {
         </motion.div>
       </section>
     </div>
-  )
+  );
 }
 
 function ProjectCard({
@@ -451,10 +662,10 @@ function ProjectCard({
   technologies,
   link,
 }: {
-  title: string
-  description: string
-  technologies: string[]
-  link: string
+  title: string;
+  description: string;
+  technologies: string[];
+  link: string;
 }) {
   return (
     <Card className="h-full hover:shadow-md transition-shadow overflow-hidden">
@@ -480,5 +691,5 @@ function ProjectCard({
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
