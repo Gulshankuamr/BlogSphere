@@ -9,7 +9,6 @@ import Image from "@tiptap/extension-image"
 import Underline from "@tiptap/extension-underline"
 import Strike from "@tiptap/extension-strike"
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight"
-// import { lowlight } from 'lowlight'; // ✅ correct in latest versions
 import { Button } from "@/components/ui/button"
 import {
   Bold,
@@ -68,16 +67,43 @@ export default function RichTextEditor({ value, onChange, placeholder, className
       Link.configure({
         openOnClick: false,
       }),
-      Image.configure({
+      Image.extend({
+        addAttributes() {
+          return {
+            ...this.parent?.(),
+            width: {
+              default: '100%',
+              renderHTML: attributes => {
+                return {
+                  width: attributes.width
+                }
+              }
+            },
+            height: {
+              default: null,
+              renderHTML: attributes => {
+                return {
+                  height: attributes.height
+                }
+              }
+            },
+            style: {
+              default: 'display: block; margin-left: auto; margin-right: auto;',
+              renderHTML: attributes => {
+                return {
+                  style: attributes.style
+                }
+              }
+            }
+          }
+        }
+      }).configure({
         inline: true,
         allowBase64: true,
         HTMLAttributes: {
-          class: 'rounded-md border',
+          class: 'rounded-md border object-contain',
         },
       }),
-      // CodeBlockLowlight.configure({
-      //   lowlight,
-      // }),
     ],
     content: value,
     editorProps: {
@@ -97,10 +123,43 @@ export default function RichTextEditor({ value, onChange, placeholder, className
               const reader = new FileReader()
               reader.onload = (readerEvent) => {
                 const imageUrl = readerEvent.target?.result as string
-                editor?.chain().focus().setImage({ src: imageUrl }).run()
+                editor?.chain().focus().setImage({ 
+                  src: imageUrl,
+                  style: 'display: block; margin-left: auto; margin-right: auto; max-width: 100%;'
+                }).run()
               }
               reader.readAsDataURL(file)
             }
+            return true
+          }
+        }
+        return false
+      },
+      handleDrop: (view, event, _slice, moved) => {
+        if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
+          const file = event.dataTransfer.files[0]
+          const coordinates = view.posAtCoords({
+            left: event.clientX,
+            top: event.clientY
+          })
+          
+          if (file.type.match('image.*')) {
+            event.preventDefault()
+            
+            const reader = new FileReader()
+            reader.onload = (readerEvent) => {
+              const imageUrl = readerEvent.target?.result as string
+              if (coordinates) {
+                editor?.chain()
+                  .focus()
+                  .setImage({ 
+                    src: imageUrl,
+                    style: 'display: block; margin-left: auto; margin-right: auto; max-width: 100%;'
+                  })
+                  .run()
+              }
+            }
+            reader.readAsDataURL(file)
             return true
           }
         }
@@ -128,7 +187,10 @@ export default function RichTextEditor({ value, onChange, placeholder, className
     const reader = new FileReader()
     reader.onload = (readerEvent) => {
       const imageUrl = readerEvent.target?.result as string
-      editor.chain().focus().setImage({ src: imageUrl }).run()
+      editor.chain().focus().setImage({ 
+        src: imageUrl,
+        style: 'display: block; margin-left: auto; margin-right: auto; max-width: 100%;'
+      }).run()
     }
     reader.readAsDataURL(file)
   }
@@ -165,7 +227,6 @@ export default function RichTextEditor({ value, onChange, placeholder, className
               onClick={() => editor.chain().focus().toggleBold().run()}
               className={editor.isActive('bold') ? 'bg-gray-100 dark:bg-gray-800' : ''}
             >
-            
               <Bold className="h-4 w-4" />
             </Button>
             <Button
